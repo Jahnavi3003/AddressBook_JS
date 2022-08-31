@@ -32,6 +32,7 @@ const PATTERN_ZIP = /^[\d]{3}[\s]?[\d]{3}$/;
 const PATTERN_PHONE = /^[\d]{2}(\s){1}[\d]{10}$/;
 const PATTERN_EMAIL = /^[\w+-]+(\.[\w+-]+)*@[\w]+(\.[\w]+)?(?=(\.[A-Za-z_]{2,3}$|\.[a-zA-Z]{2,3}$)).*$/;
 
+var addressBook = new Array();
 
 function addContacts(firstName , lastName , address , city , state , zip_code , phone_number , email){ 
     let result_firstName = PATTERN_NAME.test(firstName); 
@@ -56,3 +57,14 @@ function addContacts(firstName , lastName , address , city , state , zip_code , 
 }
 
 addContacts("lavi", "sankar","mtm","pradesh","AP",500001,8135455842,"lavidavi@gmail.com");
+
+addContacts("Gum","Nahani","Mangalgiri","Telangana","India","520441","91 85123331142","gum-ghor@gmail.com");
+
+
+function displayContacts(){
+    for(let i = 0; i < addressBook.length; i++){
+        console.log(addressBook[i]);
+    }
+}
+
+displayContacts(); 
