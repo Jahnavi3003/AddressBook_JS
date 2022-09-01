@@ -52,46 +52,21 @@ function addContacts(firstName , lastName , address , city , state , zip_code , 
         console.log("Contact validated successfully.")
     }
     else{
-        throw "Please enter only valid contact details.";     
+         "Please enter only valid contact details.";     
     }
 }
 
-function editContact(first_name , option , newValue){
+function deleteContact(first_name){
     if(addressBook.length == 0){
         console.log("OOPS! Address Book is empty.");
     }
     else{
-        addressBook.forEach(contact => {
-            if(contact.firstName == first_name){  
-                switch(option){
-                    case "firstName":
-                        contact.firstName = newValue;
-                        break;
-                    case "lastName":
-                        contact.lastName = newValue;
-                        break;
-                    case "address":
-                        contact.address - newValue;
-                        break;
-                    case "city":
-                        contact.city = newValue;
-                        break;
-                    case "state":
-                        contact.state = newValue;
-                        break;                    case "zipCode":
-                        contact.zip_code = newValue;
-                        break;
-                    case "phoneNum":
-                        contact.phone_number = newValue;
-                        break;
-                    case "email":
-                        contact.email = newValue;
-                        break;
-                    default:
-                        console.log("Please choose valid option.");
-                }
+        for(let i = 0; i < addressBook.length; i++){
+            if(addressBook[i].firstName === first_name){    //delete contact by using splice method if contact found in the address book.
+                addressBook.splice(i , 1);
+                console.log("Successfully deleted contact with first name as " + first_name + " .");
             }
-        });
+        }
     }
 }
 
@@ -101,5 +76,5 @@ addContacts("Gum","Nahani","Mangalgiri","Telangana","India",520441,851233142,"gu
 
 console.log(addressBook);
 
-editContact("Gum","state","Goa");
+deleteContact("lavi");
 console.log(addressBook);
