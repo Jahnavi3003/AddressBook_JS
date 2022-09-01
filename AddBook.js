@@ -56,15 +56,50 @@ function addContacts(firstName , lastName , address , city , state , zip_code , 
     }
 }
 
-addContacts("lavi", "sankar","mtm","pradesh","AP",500001,8135455842,"lavidavi@gmail.com");
-
-addContacts("Gum","Nahani","Mangalgiri","Telangana","India","520441","91 85123331142","gum-ghor@gmail.com");
-
-
-function displayContacts(){
-    for(let i = 0; i < addressBook.length; i++){
-        console.log(addressBook[i]);
+function editContact(first_name , option , newValue){
+    if(addressBook.length == 0){
+        console.log("OOPS! Address Book is empty.");
+    }
+    else{
+        addressBook.forEach(contact => {
+            if(contact.firstName == first_name){  
+                switch(option){
+                    case "firstName":
+                        contact.firstName = newValue;
+                        break;
+                    case "lastName":
+                        contact.lastName = newValue;
+                        break;
+                    case "address":
+                        contact.address - newValue;
+                        break;
+                    case "city":
+                        contact.city = newValue;
+                        break;
+                    case "state":
+                        contact.state = newValue;
+                        break;                    case "zipCode":
+                        contact.zip_code = newValue;
+                        break;
+                    case "phoneNum":
+                        contact.phone_number = newValue;
+                        break;
+                    case "email":
+                        contact.email = newValue;
+                        break;
+                    default:
+                        console.log("Please choose valid option.");
+                }
+            }
+        });
     }
 }
 
-displayContacts(); 
+addContacts("lavi", "sankar","mtm","pradesh","AP",500001,8135455842,"lavidavi@gmail.com");
+
+addContacts("Gum","Nahani","Mangalgiri","Telangana","India",520441,851233142,"gumghor@gmail.com");
+
+console.log(addressBook);
+
+editContact("Gum","state","Goa");
+console.log(addressBook);
