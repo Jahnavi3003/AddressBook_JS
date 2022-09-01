@@ -56,18 +56,11 @@ function addContacts(firstName , lastName , address , city , state , zip_code , 
     }
 }
 
-function deleteContact(first_name){
-    if(addressBook.length == 0){
-        console.log("OOPS! Address Book is empty.");
-    }
-    else{
-        for(let i = 0; i < addressBook.length; i++){
-            if(addressBook[i].firstName === first_name){    //delete contact by using splice method if contact found in the address book.
-                addressBook.splice(i , 1);
-                console.log("Successfully deleted contact with first name as " + first_name + " .");
-            }
-        }
-    }
+function numberOfContacts(){
+    addressBook.reduce( () => {
+        count++;
+    },count = 0);
+    console.log("Number of contacts in Address Book :- " + count);
 }
 
 addContacts("lavi", "sankar","mtm","pradesh","AP",500001,8135455842,"lavidavi@gmail.com");
@@ -75,6 +68,4 @@ addContacts("lavi", "sankar","mtm","pradesh","AP",500001,8135455842,"lavidavi@gm
 addContacts("Gum","Nahani","Mangalgiri","Telangana","India",520441,851233142,"gumghor@gmail.com");
 
 console.log(addressBook);
-
-deleteContact("lavi");
-console.log(addressBook);
+numberOfContacts();
