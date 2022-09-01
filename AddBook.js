@@ -49,7 +49,7 @@ function addContacts(firstName , lastName , address , city , state , zip_code , 
 
         let contact = new Contact(firstName , lastName , address , city , state , zip_code , phone_number , email);
 
-        console.log("Contact validated successfully.")
+        addressBook.push(contact);
     }
     else{
         throw "Please enter only valid contact details.";     
@@ -111,6 +111,20 @@ function searchPersonByCityOrState(choice , cityOrState){
     }
 }
 
+function viewPersonByCityOrState(choice , cityOrState){
+    if(choice == "city" || choice == "City" || choice == "CITY"){
+        person = addressBook.filter(contact => contact.city === cityOrState)
+        console.log(person);
+    }
+    else if(choice == "state" || choice == "State" || choice == "STATE"){
+        person = addressBook.filter(contact => contact.state === cityOrState)
+        console.log(person);
+    }
+    else{
+        console.log("OOPS! Please choose city or state only to search.");
+    }
+}
+
 addContacts("lavi", "sankar","mtm","pradesh","AP",500001,8135455842,"lavidavi@gmail.com");
 
 addContacts("Gum","Nahani","Mangalgiri","Telangana","India",520441,851233142,"gumghor@gmail.com");
@@ -119,3 +133,9 @@ console.log(addressBook);
 
 editContact("Gum","state","Goa");
 console.log(addressBook);
+
+
+searchPersonByCityOrState("city" , "mtm");
+
+
+viewPersonByCityOrState("state", "Telangana");
